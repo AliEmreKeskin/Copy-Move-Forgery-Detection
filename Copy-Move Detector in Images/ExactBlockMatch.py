@@ -4,18 +4,14 @@ from pprint import pprint as pp
 from operator import itemgetter
 
 #loading source image
-img=cv2.imread("img\Jeep.bmp",cv2.IMREAD_COLOR)
+img=cv2.imread("img\Hats3.bmp",cv2.IMREAD_COLOR)
 cv2.imshow("Img",img)
 height, width=img.shape[:2]
 
 #creating matrix A
 B=4
 A=[]
-roi=[]
-rowInA=[]
 indexInA=0
-sub=[]
-j=[]
 for row in range(0,height-B+1):
     for col in range(0,width-B+1):
         roi=img[row:row+B,col:col+B]
@@ -27,9 +23,7 @@ for row in range(0,height-B+1):
 
 sortedA=sorted(A, key=itemgetter(1))
 print("sorting done")
-print(sortedA[0])
-print(sortedA[1])
-print(sortedA[2])
+print("press to start matching")
 input()
 
 matchIndexes=[]
@@ -39,7 +33,7 @@ for i in range(len(sortedA)-1):
         print(matchIndexes[-1])
 
 
-print("done")
+print("matching done")
 
   
     
