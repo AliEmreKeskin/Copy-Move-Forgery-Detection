@@ -3,23 +3,17 @@ import cv2
 import CopyMoveDetect
 
 #loading source image
-img=cv2.imread("img\Jeep3.bmp",cv2.IMREAD_COLOR)
+img=cv2.imread("img\Hats.bmp",cv2.IMREAD_GRAYSCALE)
 height, width=img.shape[:2]
 cv2.imshow("Img",img)
 cv2.waitKey(1)
 
-#exact block match
-match=np.copy(img)
-CopyMoveDetect.exactBlockMatch(img,match,4)
+result=np.copy(img)
 
-#show result
-cv2.imshow("match",match)
+CopyMoveDetect.BlockMatchDCT(img,result,8,0,16,0,4,100,100)
+
+cv2.imshow("result",result)
 cv2.waitKey(1)
-
-#to show only matches
-black=np.zeros((height,width,3),np.uint8)
-CopyMoveDetect.exactBlockMatch(img,black,4)
-cv2.imshow("black",black)
 
 cv2.waitKey(0)
 cv2.destroyAllWindows()
