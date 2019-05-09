@@ -68,7 +68,7 @@ elapsed_time = end_time - start_time
 cv2.imwrite(args.output,result)
 
 print("[+] Done!")
-print("[+] Elapsed time: %.2f\n" %elapsed_time)
+print("[+] Elapsed in: %.2f\n" %elapsed_time)
 
 #cv2.waitKey(0)
 #cv2.destroyAllWindows()
